@@ -1,0 +1,585 @@
+/* --- Global Variables (Color Scheme from previous file maintained) --- */
+:root {
+    --color-dark: #1d1d1f;      /* Near-black for primary text and elements (Corporate feel) */
+    --color-light: #ffffff;     /* Clean white background */
+    --color-gray-bg: #f5f5f7;   /* Very light gray for subtle section breaks (iStore aesthetic) */
+    --color-accent: #388e3c;    /* Professional Green/Teal accent for calls to action */
+    --color-secondary-accent: #4CAF50; /* A lighter green for secondary focus */
+    --font-heading: 'Helvetica Neue', Arial, sans-serif; /* Modern, clean font stack */
+    --font-body: 'Roboto', 'Open Sans', sans-serif;
+}
+
+/* --- Global Reset & Typography --- */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: var(--font-body);
+    background-color: var(--color-light);
+    color: var(--color-dark);
+    line-height: 1.6;
+    scroll-behavior: smooth;
+}
+
+h1, h2, h3, h4 {
+    font-family: var(--font-heading);
+    color: var(--color-dark);
+    margin: 0.5em 0;
+    letter-spacing: -0.02em; /* Tighten letter spacing for a premium feel */
+}
+
+h1 { font-size: 2.8rem; font-weight: 700; text-align: center; }
+h2 { font-size: 2rem; font-weight: 600; }
+h3 { font-size: 1.2rem; font-weight: 500; }
+
+a {
+    color: var(--color-dark);
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+a:hover {
+    color: var(--color-accent);
+}
+
+/* --- Layout Utilities --- */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+section {
+    padding: 60px 0;
+}
+
+/* --- Navigation Bar --- */
+.navbar {
+    background-color: var(--color-dark);
+    padding: 15px 0;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.navbar ul {
+    list-style: none;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0;
+}
+
+.navbar .brand {
+    font-family: var(--font-heading);
+    font-size: 1.4rem;
+    font-weight: 700;
+    color: var(--color-light);
+    letter-spacing: 0.05em;
+}
+
+.navbar .nav-links {
+    display: flex;
+    gap: 30px;
+}
+
+.navbar .nav-links a {
+    color: var(--color-light);
+    font-size: 1rem;
+    font-weight: 500;
+    padding: 5px 0;
+    transition: color 0.3s;
+}
+
+.navbar .nav-links a:hover {
+    color: var(--color-accent);
+}
+
+/* --- Call to Action Button (CTA) --- */
+.cta-button {
+    display: inline-block;
+    background-color: var(--color-accent);
+    color: var(--color-light);
+    padding: 12px 30px;
+    border-radius: 50px; /* Highly rounded, modern look */
+    font-weight: 600;
+    font-size: 1.1rem;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.2s;
+}
+
+.cta-button:hover {
+    background-color: var(--color-secondary-accent);
+    transform: translateY(-2px);
+    color: var(--color-light);
+}
+
+/* --- Hero Section (Homepage Banner) --- */
+.hero-section {
+    background-color: var(--color-gray-bg);
+    padding: 100px 0;
+    text-align: center;
+}
+
+.hero-section h1 {
+    font-size: 4rem;
+    margin-bottom: 20px;
+    line-height: 1.1;
+}
+
+.hero-section p {
+    font-size: 1.4rem;
+    color: #444;
+    max-width: 800px;
+    margin: 0 auto 30px auto;
+}
+
+/* --- Feature Grid (Homepage) --- */
+.features {
+    padding-top: 80px;
+}
+
+.features h2, .features p:first-of-type {
+    text-align: center;
+}
+
+.features p:first-of-type {
+    max-width: 800px;
+    margin: 0 auto 50px auto;
+    font-size: 1.1rem;
+}
+
+.feature-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+    padding-top: 40px;
+}
+
+.feature-item {
+    text-align: center;
+    padding: 20px;
+}
+
+.feature-item img {
+    width: 100%;
+    max-width: 450px;
+    height: auto;
+    object-fit: cover;
+    border-radius: 8px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+    margin-bottom: 20px;
+}
+
+.feature-item h3 {
+    font-weight: 700;
+    color: var(--color-accent);
+}
+
+/* --- Course Card Design (for coursepage1-4.html) --- */
+
+.course-grid {
+    display: grid;
+    grid-template-columns: 1fr; /* Default to one column for mobile */
+    gap: 40px;
+    margin-top: 30px;
+}
+
+/* Desktop layout for course cards */
+@media (min-width: 768px) {
+    .course-grid {
+        grid-template-columns: 1fr 1fr; /* Two columns on larger screens */
+    }
+}
+
+.course-card {
+    background-color: var(--color-light);
+    border: 1px solid var(--color-gray-bg);
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08); /* Premium shadow */
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.course-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.12);
+}
+
+.course-card img {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+    display: block;
+}
+
+.course-content {
+    padding: 30px;
+}
+
+.course-content h2 {
+    margin-top: 0;
+    color: var(--color-dark);
+    font-weight: 700;
+}
+
+.course-content h3 { /* This is the "Purpose" */
+    font-size: 1.1rem;
+    color: var(--color-accent);
+    margin-bottom: 10px;
+}
+
+.course-price {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--color-dark);
+    margin-top: 15px;
+    border-top: 1px solid var(--color-gray-bg);
+    padding-top: 15px;
+}
+
+.view-more-nav {
+    text-align: right;
+    margin-bottom: 40px;
+}
+
+/* --- Enquiry Form Styles (enquirypage.html) --- */
+.enquiry-form-section .container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.enquiry-form-section h2 {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.enquiry-form-section form {
+    max-width: 600px;
+    width: 100%;
+    padding: 30px;
+    background-color: var(--color-light);
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+    margin-bottom: 40px;
+}
+
+.enquiry-form-section form p {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 20px;
+}
+
+.enquiry-form-section label {
+    font-weight: 600;
+    margin-bottom: 8px;
+    font-size: 1rem;
+    color: var(--color-dark);
+}
+
+.enquiry-form-section input[type="text"], 
+.enquiry-form-section input[type="email"], 
+.enquiry-form-section textarea {
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 1rem;
+    transition: border-color 0.3s;
+}
+
+.enquiry-form-section input:focus, 
+.enquiry-form-section textarea:focus {
+    border-color: var(--color-accent);
+    outline: none;
+}
+
+.course-selection {
+    padding: 20px 0;
+    border-top: 1px solid #eee;
+    border-bottom: 1px solid #eee;
+    margin: 20px 0;
+}
+
+.course-selection label {
+    font-weight: normal; 
+    margin-left: 5px;
+    font-size: 0.95rem;
+}
+
+.calculations-section {
+    background-color: var(--color-gray-bg);
+    padding: 30px;
+    border-radius: 8px;
+    max-width: 600px;
+    width: 100%;
+    text-align: center;
+}
+
+.calculations-section h2 {
+    margin-top: 0;
+    color: var(--color-dark);
+}
+
+.calculations-section p {
+    font-size: 1.2rem;
+    line-height: 1.8;
+    margin: 10px 0;
+}
+
+.calculations-section span {
+    font-weight: 700;
+    color: var(--color-accent);
+}
+
+/* --- Contact Page Styles --- */
+.contact-details {
+    text-align: center;
+    padding-bottom: 0;
+}
+
+.contact-details strong {
+    color: var(--color-accent);
+}
+
+.map-section {
+    padding-top: 30px;
+}
+
+/* --- Footer --- */
+footer {
+    background-color: var(--color-dark);
+    color: var(--color-light);
+    padding: 40px 0;
+    margin-top: 50px;
+    font-size: 0.9rem;
+}
+
+.footer-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    text-align: center;
+    gap: 20px;
+}
+
+@media (min-width: 768px) {
+    .footer-content {
+        flex-direction: row;
+        align-items: flex-start;
+        text-align: left;
+    }
+}
+
+.footer-left h2, .footer-right p {
+    color: var(--color-light);
+    font-size: 1.1rem;
+    margin-bottom: 10px;
+}
+
+.footer-right {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+@media (min-width: 768px) {
+    .footer-right {
+        align-items: flex-end;
+    }
+}
+
+.footer-socials {
+    display: flex;
+    gap: 15px;
+    margin-top: 10px;
+}
+
+.footer-socials a img {
+    opacity: 0.8;
+    transition: opacity 0.3s;
+}
+
+.footer-socials a:hover img {
+    opacity: 1;
+}
+
+
+/* --- Media Queries for Responsiveness --- */
+@media (max-width: 768px) {
+    h1 { font-size: 2.2rem; }
+    h2 { font-size: 1.6rem; }
+
+    /* Navigation */
+    .navbar .container {
+        flex-direction: column;
+        text-align: center;
+    }
+    .navbar ul {
+        flex-direction: column;
+        gap: 10px;
+    }
+    .navbar .nav-links {
+        margin-top: 15px;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 15px;
+    }
+
+    /* Hero */
+    .hero-section {
+        padding: 60px 20px;
+    }
+    .hero-section h1 {
+        font-size: 3rem;
+    }
+    .hero-section p {
+        font-size: 1.1rem;
+    }
+
+    /* Feature Grid */
+    .feature-grid {
+        grid-template-columns: 1fr;
+    }
+
+    /* Footer */
+    .footer-left, .footer-right {
+        text-align: center;
+        width: 100%;
+    }
+    .footer-right .footer-socials {
+        justify-content: center;
+    }
+}
+
+/* --- New Home Page Layout Sections --- */
+
+/* Section for alternating content blocks (image on one side, text on the other) */
+.two-column-promo {
+    display: flex;
+    align-items: center;
+    gap: 60px;
+    padding: 80px 0;
+}
+
+/* Reverses the order of columns for alternating design */
+.two-column-promo.reverse {
+    flex-direction: row-reverse;
+    background-color: var(--color-gray-bg); /* Use light background for alternation */
+}
+
+.promo-image-container {
+    flex: 1;
+    min-width: 40%;
+}
+
+.promo-image-container img {
+    width: 100%;
+    height: auto;
+    border-radius: 12px;
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
+}
+
+.promo-content {
+    flex: 1;
+}
+
+.promo-content h2 {
+    font-size: 2.2rem;
+    margin-bottom: 15px;
+}
+
+.promo-content p {
+    font-size: 1.1rem;
+    margin-bottom: 25px;
+    color: #444;
+}
+
+/* Section to feature a select number of courses dynamically */
+.course-cta-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+    margin-top: 40px;
+}
+
+.course-cta-item {
+    background-color: var(--color-light);
+    border: 1px solid #eee;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+    transition: box-shadow 0.3s, transform 0.3s;
+    text-align: center;
+}
+
+.course-cta-item:hover {
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+    transform: translateY(-5px);
+}
+
+.course-cta-item h3 {
+    color: var(--color-accent);
+    margin-bottom: 10px;
+}
+
+/* Media Query Adjustments */
+@media (max-width: 900px) {
+    .two-column-promo {
+        flex-direction: column;
+        gap: 30px;
+        text-align: center;
+    }
+    .two-column-promo.reverse {
+        flex-direction: column; /* Stacks columns normally on mobile, too */
+    }
+    .promo-content {
+        order: 2; /* Content after image on mobile, unless reversed */
+    }
+    .promo-image-container {
+        order: 1;
+    }
+}
+
+/* Styles for the main navigation container
+(Ensure logo/brand and nav links are side-by-side within the container) 
+*/
+.navbar .container ul {
+    display: flex; /* Ensures items are side-by-side */
+    justify-content: space-between; /* Pushes brand/logo to the left and nav links to the right */
+    align-items: center; /* Vertically centers all items */
+    width: 100%; 
+    padding: 0; 
+    margin: 0; 
+    list-style: none; 
+}
+
+/* Styles for the new container holding the logo and text 
+(This ensures the logo and text are side-by-side)
+*/
+.brand-identity {
+    display: flex;
+    align-items: center; /* Vertically center the logo and text */
+    gap: 10px; /* Adds space between the logo and the text */
+}
+
+/* Optional: Style the logo image */
+.nav-logo {
+    height: 50px; /* Adjust logo size */
+    width: auto;
+}
+
+/* Optional: Style the brand name text for emphasis */
+.brand-text {
+    font-size: 1.5rem; /* Make the text size appropriate */
+    font-weight: bold;
+    color: var(--color-primary, white); /* Use your primary text color */
+}
